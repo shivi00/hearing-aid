@@ -15,6 +15,9 @@ COPY . /app/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+RUN python manage.py makemigrations \
+    && python manage.py migrate
+
 #Port on which server runs
 EXPOSE 8000
 
